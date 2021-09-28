@@ -13,9 +13,19 @@ class OrderTest extends TestCase
 
     private $bot_id = 1;
 
-    public function testSuccessOrder(): void
+//    public function testSuccessOrder(): void
+//    {
+//        $order = new Order($this->token, $this->bot_id);
+//        $result = $order->successOrder(2526788, 'TEST');
+//        var_dump($result);
+//    }
+
+    public function testSendRequest(): void
     {
         $order = new Order($this->token, $this->bot_id);
-        $order->successOrder(2526741, 'TEST');
+        $params = [
+            'text' => "Информация по заказу #2526788 \r\n TEST",
+        ];
+        $result = $order->sendRequest(2526788, 'sendMessage', $params);
     }
 }

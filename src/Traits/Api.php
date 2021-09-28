@@ -7,9 +7,11 @@ trait Api
 {
     static $API_URL = "https://api.bot-t.ru/";
 
-    private function post(string $url, array $params, string $token, int $bot_id): array
+    private function post(string $url, array $params, int $bot_id): array
     {
-
+        $params = array_merge($params, [
+            'bot_id' => $bot_id
+        ]);
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -36,13 +38,16 @@ trait Api
         return [];
     }
 
-    private function getURL(string $endpoint, array $swapping = [], $version = 'v1'): string
+    private function getURL(string $endpoint, string $token, array $swapping = [], $version = 'v1'): string
     {
         $url = self::$API_URL . $version . $endpoint;
-        if (empty($swapping)) {
-            return $url;
+        if (!empty($swapping)) {
+            $url = vsprintf($url, $swapping);
         }
-
-        return vsprintf($url, $swapping);
+        $params = [
+            'token' => $token
+        ];
+        $uri = http_build_query($params);
+        return $url . '?' . $uri;
     }
 }
