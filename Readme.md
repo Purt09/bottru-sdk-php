@@ -1,9 +1,8 @@
 ## installing the package
-SDK for working with apirone.com
+SDK for working with bot-t.ru
 ### From CLI
 ```$xslt
-$ composer config repositories.apirone vcs https://github.com/purt09/apirone.git
-$ composer require purt09/apirone:dev-master
+$ composer require purt09/bottru-sdk-php:dev-master
 ```
 ## Unit testing
 
@@ -13,13 +12,11 @@ $ composer install
 ```
 ### Run Tests
 ```$xslt
-$ php vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/Services/WalletTest.php
-$ php vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/Services/NetworkFeeTest.php
-$ php vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/Services/CourseTest.php
+$ php vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/Services/UserTest.php
+$ php vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/Services/OrderTest.php
 ```
 or
 ```$xslt
-$ "vendor/bin/phpunit" --bootstrap vendor/autoload.php tests/unit/Services/WalletTwoTest.php
-$ "vendor/bin/phpunit" --bootstrap vendor/autoload.php tests/unit/Services/NetworkFeeTest.php
-$ "vendor/bin/phpunit" --bootstrap vendor/autoload.php tests/unit/Services/CourseTest.php
+$ "vendor/bin/phpunit" --bootstrap vendor/autoload.php tests/unit/Services/UserTest.php
+$ "vendor/bin/phpunit" --bootstrap vendor/autoload.php tests/unit/Services/OrderTest.php
 ```

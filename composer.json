@@ -1,13 +1,13 @@
 {
-  "name": "purt09/apirone",
-  "description": "Library for implement Apirone Api",
+  "name": "purt09/bott",
+  "description": "Library for implement bot-t.ru Api",
   "type": "library",
   "license": "MIT",
   "minimum-stability": "dev",
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/Purt09/apirone.git"
+      "url": "https://github.com/Purt09/bottru-sdk-php.git"
     }
   ],
   "require": {
@@ -18,7 +18,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Purt09\\Apirone\\": "src/",
+      "Purt09\\Bott\\": "src/",
       "Test\\": "tests/"
     }
   }

@@ -1,14 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace Purt09\Apirone\Traits;
+namespace Purt09\Bott\Traits;
 
 trait Api
 {
-    static $API_URL = "https://apirone.com/api/";
+    static $API_URL = "https://api.bot-t.ru/";
 
-    private function post(string $url, array $params): array
+    private function post(string $url, array $params, string $token, int $bot_id): array
     {
+
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -35,7 +36,7 @@ trait Api
         return [];
     }
 
-    private function getURL(string $endpoint, array $swapping = [], $version = 'v2'): string
+    private function getURL(string $endpoint, array $swapping = [], $version = 'v1'): string
     {
         $url = self::$API_URL . $version . $endpoint;
         if (empty($swapping)) {
