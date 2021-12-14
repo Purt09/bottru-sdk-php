@@ -15,7 +15,7 @@ class User implements UserInterface
     private $bot_id;
 
     const ENDPOINTS = [
-        'ticker' => '/ticker',
+        'addBalance' => '/bot/user/add-balance',
     ];
 
     public function __construct(string $token, int $bot_id)
@@ -24,8 +24,13 @@ class User implements UserInterface
         $this->bot_id = $bot_id;
     }
 
-    public function getUsers()
+    public function addBalance(int $user_id, string $sum)
     {
-
+        $url = $this->getURL(self::ENDPOINTS['addBalance'], $this->token);
+        $params = [
+            'user_id' => $user_id,
+            'sum' => $sum
+        ];
+        return $this->post($url, $params, $this->bot_id);
     }
 }
